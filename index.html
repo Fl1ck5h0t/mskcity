@@ -35,35 +35,41 @@
       </nav>
     </header>
 
-    <!-- Главный блок -->
-    <section class="flex flex-col md:flex-row items-center justify-between px-8 py-16 max-w-6xl mx-auto bg-white/10 backdrop-blur-sm rounded-xl" id="about">
-      <img src="tower.png" alt="Башня Империя" class="w-full md:w-1/2 rounded-2xl shadow-lg mb-8 md:mb-0" data-aos="fade-right">
-      <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
-        <h1 class="text-3xl md:text-4xl font-bold mb-4">Смотровая площадка в БЦ «Империя»</h1>
-        <p class="mb-3">Высота башни: <span class="font-semibold">239 м</span></p>
-        <p class="mb-3">Размер смотровой площадки: <span class="font-semibold">1200 м²</span></p>
-        <p class="mb-3">Уникальный вид на Москву и Москва-Сити.</p>
-      </div>
-    </section>
+<!-- Главный блок -->
+<section class="flex flex-col md:flex-row items-center justify-between px-8 py-16 max-w-6xl mx-auto bg-white/10 backdrop-blur-sm rounded-xl" id="about">
+  <!-- Картинка башни -->
+  <img src="tower.png" alt="Башня Империя"
+       class="w-full md:w-1/2 max-h-[500px] object-cover rounded-2xl shadow-lg mb-8 md:mb-0"
+       data-aos="fade-right">
 
-    <!-- Галерея с Lightbox -->
-    <section id="gallery" class="px-6 py-12 bg-white/10 backdrop-blur-sm rounded-xl mx-4 mt-8">
-      <h2 class="text-2xl font-bold text-center mb-8" data-aos="zoom-in">Фотогалерея</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <a href="photo1.webp">
-          <img src="photo1.webp" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 1" data-aos="zoom-in" data-aos-delay="100">
-        </a>
-        <a href="photo2.webp">
-          <img src="photo2.webp" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 2" data-aos="zoom-in" data-aos-delay="200">
-        </a>
-        <a href="photo3.webp">
-          <img src="photo3.webp" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 3" data-aos="zoom-in" data-aos-delay="300">
-        </a>
-        <a href="photo4.png">
-          <img src="photo4.png" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 4" data-aos="zoom-in" data-aos-delay="400">
-        </a>
-      </div>
-    </section>
+  <!-- Текстовая информация -->
+  <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">Смотровая площадка в БЦ «Империя»</h1>
+    <p class="mb-3">Высота башни: <span class="font-semibold">239 м</span></p>
+    <p class="mb-3">Размер смотровой площадки: <span class="font-semibold">1200 м²</span></p>
+    <p class="mb-3">Уникальный вид на Москву и Москва-Сити.</p>
+  </div>
+</section>
+
+<!-- Галерея -->
+<section id="gallery" class="px-6 py-12 bg-white/10 backdrop-blur-sm rounded-xl mx-4 mt-8">
+  <h2 class="text-2xl font-bold text-center mb-8" data-aos="zoom-in">Фотогалерея</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <a href="photo1.webp">
+      <img src="photo1.webp" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 1" data-aos="zoom-in" data-aos-delay="100">
+    </a>
+    <a href="photo2.webp">
+      <img src="photo2.webp" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 2" data-aos="zoom-in" data-aos-delay="200">
+    </a>
+    <a href="photo3.webp">
+      <img src="photo3.webp" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 3" data-aos="zoom-in" data-aos-delay="300">
+    </a>
+    <a href="photo4.png">
+      <img src="photo4.png" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 4" data-aos="zoom-in" data-aos-delay="400">
+    </a>
+  </div>
+</section>
+
 
     <!-- Кнопка-заглушка -->
     <section id="tickets" class="px-6 py-16 text-center mt-8">
@@ -134,3 +140,4 @@
 
 </body>
 </html>
+
