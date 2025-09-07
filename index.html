@@ -44,9 +44,9 @@
     <section id="gallery" class="px-6 py-12 bg-gray-100/90 backdrop-blur-sm">
       <h2 class="text-2xl font-bold text-center mb-8" data-aos="zoom-in">Фотогалерея</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img src="photo1.jpg" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 1" data-aos="zoom-in" data-aos-delay="100">
-        <img src="photo2.jpg" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 2" data-aos="zoom-in" data-aos-delay="200">
-        <img src="photo3.jpg" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 3" data-aos="zoom-in" data-aos-delay="300">
+        <img src="photo1.web" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 1" data-aos="zoom-in" data-aos-delay="100">
+        <img src="photo2.web" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 2" data-aos="zoom-in" data-aos-delay="200">
+        <img src="photo3.web" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 3" data-aos="zoom-in" data-aos-delay="300">
         <img src="photo4.jpg" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 4" data-aos="zoom-in" data-aos-delay="400">
       </div>
     </section>
@@ -60,34 +60,13 @@
       </button>
     </section>
 
-<!-- Яндекс.Карта -->
-<section class="px-6 py-12 bg-gray-100/90 backdrop-blur-sm">
-  <h2 class="text-2xl font-bold text-center mb-6" data-aos="fade-up">Мы на карте</h2>
-  <div id="map" class="rounded-xl overflow-hidden shadow-lg" style="width: 100%; height: 400px;" data-aos="zoom-in"></div>
-</section>
-
-<!-- Скрипт Яндекс.Карт -->
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-<script>
-  ymaps.ready(init);
-  function init(){
-      var map = new ymaps.Map("map", {
-          center: [55.7495, 37.5396], // координаты башни Империя
-          zoom: 16,
-          controls: ['zoomControl', 'fullscreenControl']
-      });
-
-      // Добавляем метку
-      var placemark = new ymaps.Placemark([55.7495, 37.5396], {
-          balloonContent: '<b>БЦ «Империя»</b><br>Смотровая площадка'
-      }, {
-          preset: 'islands#redIcon'
-      });
-
-      map.geoObjects.add(placemark);
-  }
-</script>
-
+    <!-- Яндекс.Карта -->
+    <section class="px-6 py-12 bg-gray-100/90 backdrop-blur-sm">
+      <h2 class="text-2xl font-bold text-center mb-6" data-aos="fade-up">Мы на карте</h2>
+      <div class="rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A3a79f7b6ecb0b7e73acb0866e2d6d25b2344c71f90f302ff628f6ab3f99a7d26&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+      </div>
+    </section>
 
     <!-- Контакты -->
     <footer id="contacts" class="px-6 py-12 bg-gray-900/90 backdrop-blur-sm text-white text-center">
@@ -123,4 +102,3 @@
   </script>
 </body>
 </html>
-
