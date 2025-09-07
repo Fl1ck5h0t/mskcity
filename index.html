@@ -46,7 +46,7 @@
       </div>
     </section>
 
-    <!-- Галерея -->
+    <!-- Галерея с Lightbox -->
     <section id="gallery" class="px-6 py-12 bg-white/10 backdrop-blur-sm rounded-xl mx-4 mt-8">
       <h2 class="text-2xl font-bold text-center mb-8" data-aos="zoom-in">Фотогалерея</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -91,12 +91,9 @@
   <!-- AOS init -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
+    AOS.init({ duration: 800, once: true });
 
-    // Получение погоды через Open-Meteo API
+    // Погода
     async function loadWeather() {
       try {
         let response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=55.7495&longitude=37.5396&current=temperature_2m,cloud_cover,visibility");
@@ -117,23 +114,19 @@
   <script>
     ymaps.ready(init);
     function init(){
-        var map = new ymaps.Map("map", {
-            center: [55.7495, 37.5396],
-            zoom: 16,
-            controls: ['zoomControl', 'fullscreenControl']
-        });
-
-        var placemark = new ymaps.Placemark([55.7495, 37.5396], {
-            balloonContent: '<b>БЦ «Империя»</b><br>Смотровая площадка'
-        }, {
-            preset: 'islands#redIcon'
-        });
-
-        map.geoObjects.add(placemark);
+      var map = new ymaps.Map("map", {
+        center: [55.7495, 37.5396],
+        zoom: 16,
+        controls: ['zoomControl', 'fullscreenControl']
+      });
+      var placemark = new ymaps.Placemark([55.7495, 37.5396], {
+        balloonContent: '<b>БЦ «Империя»</b><br>Смотровая площадка'
+      }, { preset: 'islands#redIcon' });
+      map.geoObjects.add(placemark);
     }
   </script>
 
-  <!-- Lightbox JS -->
+  <!-- Lightbox -->
   <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.js"></script>
   <script>
     var lightbox = new SimpleLightbox('#gallery a', {});
