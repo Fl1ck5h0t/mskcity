@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Смотровая площадка — Империя</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="font-sans text-gray-900 relative">
+  <!-- Фон сайта -->
+  <div class="fixed inset-0 bg-cover bg-center" style="background-image: url('background.jpg');"></div>
+  <div class="fixed inset-0 bg-black/50"></div>
+
+  <!-- Контент поверх фона -->
+  <div class="relative z-10">
+    <!-- Блок погоды -->
+    <div id="weather" class="bg-gray-900/80 text-white text-center py-2 text-sm"></div>
+
+    <!-- Шапка -->
+    <header class="flex items-center justify-between px-6 py-4">
+      <img src="logo.png" alt="Лого" class="h-12" data-aos="fade-down">
+      <nav class="hidden md:flex space-x-6 text-white font-medium" data-aos="fade-down" data-aos-delay="200">
+        <a href="#about" class="hover:text-yellow-400">О башне</a>
+        <a href="#gallery" class="hover:text-yellow-400">Галерея</a>
+        <a href="#tickets" class="hover:text-yellow-400">Билеты</a>
+        <a href="#contacts" class="hover:text-yellow-400">Контакты</a>
+      </nav>
+    </header>
+
+    <!-- Главный блок -->
+    <section class="flex flex-col md:flex-row items-center justify-between px-8 py-16 max-w-6xl mx-auto text-white">
+      <img src="tower.png" alt="Башня Империя" class="w-full md:w-1/2 rounded-2xl shadow-lg mb-8 md:mb-0" data-aos="fade-right">
+      <div id="about" class="md:w-1/2 md:pl-12" data-aos="fade-left">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">Смотровая площадка в БЦ «Империя»</h1>
+        <p class="mb-3">Высота башни: <span class="font-semibold">239 м</span></p>
+        <p class="mb-3">Размер смотровой площадки: <span class="font-semibold">1200 м²</span></p>
+        <p class="mb-3">Уникальный вид на Москву и Москва-Сити.</p>
+      </div>
+    </section>
+
+    <!-- Галерея -->
+    <section id="gallery" class="px-6 py-12 bg-gray-100/90 backdrop-blur-sm">
+      <h2 class="text-2xl font-bold text-center mb-8" data-aos="zoom-in">Фотогалерея</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="photo1.jpg" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 1" data-aos="zoom-in" data-aos-delay="100">
+        <img src="photo2.jpg" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 2" data-aos="zoom-in" data-aos-delay="200">
+        <img src="photo3.jpg" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 3" data-aos="zoom-in" data-aos-delay="300">
+        <img src="photo4.jpg" class="rounded-xl shadow-md hover:scale-105 transition" alt="Фото 4" data-aos="zoom-in" data-aos-delay="400">
+      </div>
+    </section>
+
+    <!-- Купить билет -->
+    <section id="tickets" class="px-6 py-16 text-center bg-gradient-to-r from-yellow-400 to-orange-500 text-white/90">
+      <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Купить билет</h2>
+      <p class="mb-6" data-aos="fade-up" data-aos-delay="200">Скоро здесь появится онлайн-продажа билетов</p>
+      <button class="bg-white text-yellow-500 font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-gray-100 transition" data-aos="fade-up" data-aos-delay="400">
+        Заглушка
+      </button>
+    </section>
+
+    <!-- Яндекс.Карта -->
+    <section class="px-6 py-12 bg-gray-100/90 backdrop-blur-sm">
+      <h2 class="text-2xl font-bold text-center mb-6" data-aos="fade-up">Мы на карте</h2>
+      <div class="rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A3a79f7b6ecb0b7e73acb0866e2d6d25b2344c71f90f302ff628f6ab3f99a7d26&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <footer id="contacts" class="px-6 py-12 bg-gray-900/90 backdrop-blur-sm text-white text-center">
+      <h2 class="text-xl font-semibold mb-4">Контакты</h2>
+      <p class="mb-2">Телефон: <a href="tel:+79991234567" class="text-yellow-400 hover:underline">+7 (999) 123-45-67</a></p>
+      <p>Адрес: Москва, Пресненская набережная, 6, стр. 2</p>
+      <p class="text-gray-400 mt-6 text-sm">© 2025 Смотровая площадка «Империя»</p>
+    </footer>
+  </div>
+
+  <!-- AOS init -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    // Получение погоды через Open-Meteo API
+    async function loadWeather() {
+      try {
+        let response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=55.7495&longitude=37.5396&current=temperature_2m,cloud_cover,visibility");
+        let data = await response.json();
+        let temp = data.current.temperature_2m;
+        let clouds = data.current.cloud_cover;
+        let visibility = (data.current.visibility / 1000).toFixed(1); // в км
+        document.getElementById("weather").innerText = `Температура: ${temp}°C | Облачность: ${clouds}% | Видимость: ${visibility} км`;
+      } catch (e) {
+        document.getElementById("weather").innerText = "Не удалось загрузить погоду";
+      }
+    }
+    loadWeather();
+  </script>
+</body>
+</html>
